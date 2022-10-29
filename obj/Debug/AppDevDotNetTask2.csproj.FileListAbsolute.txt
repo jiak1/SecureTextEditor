@@ -1,0 +1,13 @@
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\bin\Debug\AppDevDotNetTask2.exe.config
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\bin\Debug\AppDevDotNetTask2.exe
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\bin\Debug\AppDevDotNetTask2.pdb
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.csprojAssemblyReference.cache
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.Properties.Resources.resources
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.TextEditor.resources
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.csproj.GenerateResource.cache
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.csproj.CoreCompileInputs.cache
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.exe
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.pdb
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.Login.resources
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.NewUser.resources
+F:\Uni\DotNet\AppDevDotNetTask2\AppDevDotNetTask2\obj\Debug\AppDevDotNetTask2.AboutForm.resources

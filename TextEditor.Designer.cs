@@ -41,7 +41,7 @@
             this.fontComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.helpButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.loggedInLabel = new System.Windows.Forms.ToolStripLabel();
             this.leftToolbar = new System.Windows.Forms.ToolStrip();
             this.cutButton = new System.Windows.Forms.ToolStripButton();
             this.copyButton = new System.Windows.Forms.ToolStripButton();
@@ -83,7 +83,7 @@
             this.fontComboBox,
             this.helpButton,
             this.toolStripSeparator2,
-            this.toolStripLabel1});
+            this.loggedInLabel});
             this.topToolbar.Location = new System.Drawing.Point(0, 24);
             this.topToolbar.Name = "topToolbar";
             this.topToolbar.Size = new System.Drawing.Size(945, 25);
@@ -98,7 +98,7 @@
             this.newFileButton.Name = "newFileButton";
             this.newFileButton.Size = new System.Drawing.Size(23, 22);
             this.newFileButton.Text = "New File";
-            this.newFileButton.Click += new System.EventHandler(this.newFileButton_Click);
+            this.newFileButton.Click += new System.EventHandler(this.NewFile);
             // 
             // openFileButton
             // 
@@ -108,7 +108,7 @@
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(23, 22);
             this.openFileButton.Text = "Open File";
-            this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
+            this.openFileButton.Click += new System.EventHandler(this.OpenFile);
             // 
             // saveFileButton
             // 
@@ -118,7 +118,7 @@
             this.saveFileButton.Name = "saveFileButton";
             this.saveFileButton.Size = new System.Drawing.Size(23, 22);
             this.saveFileButton.Text = "Save";
-            this.saveFileButton.Click += new System.EventHandler(this.saveFileButton_Click);
+            this.saveFileButton.Click += new System.EventHandler(this.Save);
             // 
             // saveAsButton
             // 
@@ -128,7 +128,7 @@
             this.saveAsButton.Name = "saveAsButton";
             this.saveAsButton.Size = new System.Drawing.Size(23, 22);
             this.saveAsButton.Text = "Save As";
-            this.saveAsButton.Click += new System.EventHandler(this.saveAsButton_Click);
+            this.saveAsButton.Click += new System.EventHandler(this.SaveAs);
             // 
             // toolStripSeparator1
             // 
@@ -167,8 +167,25 @@
             // 
             // fontComboBox
             // 
+            this.fontComboBox.Items.AddRange(new object[] {
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"});
             this.fontComboBox.Name = "fontComboBox";
             this.fontComboBox.Size = new System.Drawing.Size(121, 25);
+            this.fontComboBox.SelectedIndexChanged += new System.EventHandler(this.fontComboBox_SelectedIndexChanged);
+            this.fontComboBox.TextUpdate += new System.EventHandler(this.fontComboBox_TextUpdate);
+            this.fontComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fontComboBox_KeyPress);
             // 
             // helpButton
             // 
@@ -184,11 +201,11 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripLabel1
+            // loggedInLabel
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(93, 22);
-            this.toolStripLabel1.Text = "User Name: Jack";
+            this.loggedInLabel.Name = "loggedInLabel";
+            this.loggedInLabel.Size = new System.Drawing.Size(93, 22);
+            this.loggedInLabel.Text = "User Name: Jack";
             // 
             // leftToolbar
             // 
@@ -209,9 +226,9 @@
             this.cutButton.Image = ((System.Drawing.Image)(resources.GetObject("cutButton.Image")));
             this.cutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutButton.Name = "cutButton";
-            this.cutButton.Size = new System.Drawing.Size(29, 20);
+            this.cutButton.Size = new System.Drawing.Size(21, 20);
             this.cutButton.Text = "Cut";
-            this.cutButton.Click += new System.EventHandler(this.cutButton_Click);
+            this.cutButton.Click += new System.EventHandler(this.Cut);
             // 
             // copyButton
             // 
@@ -219,9 +236,9 @@
             this.copyButton.Image = ((System.Drawing.Image)(resources.GetObject("copyButton.Image")));
             this.copyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyButton.Name = "copyButton";
-            this.copyButton.Size = new System.Drawing.Size(29, 20);
+            this.copyButton.Size = new System.Drawing.Size(21, 20);
             this.copyButton.Text = "Copy";
-            this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
+            this.copyButton.Click += new System.EventHandler(this.Copy);
             // 
             // pasteButton
             // 
@@ -229,9 +246,9 @@
             this.pasteButton.Image = ((System.Drawing.Image)(resources.GetObject("pasteButton.Image")));
             this.pasteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteButton.Name = "pasteButton";
-            this.pasteButton.Size = new System.Drawing.Size(29, 20);
+            this.pasteButton.Size = new System.Drawing.Size(21, 20);
             this.pasteButton.Text = "Paste";
-            this.pasteButton.Click += new System.EventHandler(this.pasteButton_Click);
+            this.pasteButton.Click += new System.EventHandler(this.Paste);
             // 
             // topFileMenuStrip
             // 
@@ -265,7 +282,7 @@
             this.newFileItem.Name = "newFileItem";
             this.newFileItem.Size = new System.Drawing.Size(114, 22);
             this.newFileItem.Text = "New";
-            this.newFileItem.Click += new System.EventHandler(this.newFileItem_Click);
+            this.newFileItem.Click += new System.EventHandler(this.NewFile);
             // 
             // openFileItem
             // 
@@ -273,7 +290,7 @@
             this.openFileItem.Name = "openFileItem";
             this.openFileItem.Size = new System.Drawing.Size(114, 22);
             this.openFileItem.Text = "Open";
-            this.openFileItem.Click += new System.EventHandler(this.openFileItem_Click);
+            this.openFileItem.Click += new System.EventHandler(this.OpenFile);
             // 
             // toolStripSeparator3
             // 
@@ -286,7 +303,7 @@
             this.saveFileItem.Name = "saveFileItem";
             this.saveFileItem.Size = new System.Drawing.Size(114, 22);
             this.saveFileItem.Text = "Save";
-            this.saveFileItem.Click += new System.EventHandler(this.saveFileItem_Click);
+            this.saveFileItem.Click += new System.EventHandler(this.Save);
             // 
             // saveAsItem
             // 
@@ -294,7 +311,7 @@
             this.saveAsItem.Name = "saveAsItem";
             this.saveAsItem.Size = new System.Drawing.Size(114, 22);
             this.saveAsItem.Text = "Save As";
-            this.saveAsItem.Click += new System.EventHandler(this.saveAsItem_Click);
+            this.saveAsItem.Click += new System.EventHandler(this.SaveAs);
             // 
             // toolStripSeparator4
             // 
@@ -307,6 +324,7 @@
             this.logoutItem.Name = "logoutItem";
             this.logoutItem.Size = new System.Drawing.Size(114, 22);
             this.logoutItem.Text = "Logout";
+            this.logoutItem.Click += new System.EventHandler(this.logoutItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -322,25 +340,25 @@
             // 
             this.cutItem.Image = ((System.Drawing.Image)(resources.GetObject("cutItem.Image")));
             this.cutItem.Name = "cutItem";
-            this.cutItem.Size = new System.Drawing.Size(180, 22);
+            this.cutItem.Size = new System.Drawing.Size(102, 22);
             this.cutItem.Text = "Cut";
-            this.cutItem.Click += new System.EventHandler(this.cutItem_Click);
+            this.cutItem.Click += new System.EventHandler(this.Cut);
             // 
             // copyItem
             // 
             this.copyItem.Image = ((System.Drawing.Image)(resources.GetObject("copyItem.Image")));
             this.copyItem.Name = "copyItem";
-            this.copyItem.Size = new System.Drawing.Size(180, 22);
+            this.copyItem.Size = new System.Drawing.Size(102, 22);
             this.copyItem.Text = "Copy";
-            this.copyItem.Click += new System.EventHandler(this.copyItem_Click);
+            this.copyItem.Click += new System.EventHandler(this.Copy);
             // 
             // pasteItem
             // 
             this.pasteItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteItem.Image")));
             this.pasteItem.Name = "pasteItem";
-            this.pasteItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteItem.Size = new System.Drawing.Size(102, 22);
             this.pasteItem.Text = "Paste";
-            this.pasteItem.Click += new System.EventHandler(this.pasteItem_Click);
+            this.pasteItem.Click += new System.EventHandler(this.Paste);
             // 
             // helpToolStripMenuItem
             // 
@@ -353,8 +371,9 @@
             // aboutItem
             // 
             this.aboutItem.Name = "aboutItem";
-            this.aboutItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutItem.Size = new System.Drawing.Size(180, 22);
             this.aboutItem.Text = "About...";
+            this.aboutItem.Click += new System.EventHandler(this.aboutItem_Click);
             // 
             // textBox
             // 
@@ -366,11 +385,11 @@
             this.textBox.Size = new System.Drawing.Size(906, 528);
             this.textBox.TabIndex = 3;
             this.textBox.Text = "";
+            this.textBox.SelectionChanged += new System.EventHandler(this.textBox_SelectionChanged);
             // 
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Text Files|*.txt;*.rtf";
-            this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
             // saveFileDialog
             // 
@@ -391,6 +410,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "TextEditor";
             this.Text = "Secured Text Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TextEditor_FormClosing);
             this.topToolbar.ResumeLayout(false);
             this.topToolbar.PerformLayout();
             this.leftToolbar.ResumeLayout(false);
@@ -416,7 +436,7 @@
         private System.Windows.Forms.ToolStripComboBox fontComboBox;
         private System.Windows.Forms.ToolStripButton helpButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripLabel loggedInLabel;
         private System.Windows.Forms.ToolStrip leftToolbar;
         private System.Windows.Forms.ToolStripButton cutButton;
         private System.Windows.Forms.ToolStripButton copyButton;
